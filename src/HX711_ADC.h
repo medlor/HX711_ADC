@@ -83,6 +83,7 @@ class HX711_ADC
 		void resetSamplesIndex();					//resets index for dataset
 		bool refreshDataSet();						//Fill the whole dataset up with new conversions, i.e. after a reset/restart (this function is blocking once started)
 		bool getDataSetStatus();					//returns 'true' when the whole dataset has been filled up with conversions, i.e. after a reset/restart
+		float setNewCalibration(float known_mass);	//returns and sets a new calibration value (calFactor) based on a known mass input
 		float getNewCalibration(float known_mass);	//returns and sets a new calibration value (calFactor) based on a known mass input
 		bool getSignalTimeoutFlag();				//returns 'true' if it takes longer time then 'SIGNAL_TIMEOUT' for the dout pin to go low after a new conversion is started
 		void setReverseOutput();					//reverse the output value
