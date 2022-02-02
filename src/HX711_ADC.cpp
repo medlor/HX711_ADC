@@ -535,13 +535,23 @@ bool HX711_ADC::getDataSetStatus()
 }
 
 //returns and sets a new calibration value (calFactor) based on a known mass input
-float HX711_ADC::getNewCalibration(float known_mass)
+float HX711_ADC::setNewCalibration(float known_mass)
 {
 	float readValue = getData();
 	float exist_calFactor = getCalFactor();
 	float new_calFactor;
 	new_calFactor = (readValue * exist_calFactor) / known_mass;
 	setCalFactor(new_calFactor);
+    return new_calFactor;
+}
+
+//returns and sets a new calibration value (calFactor) based on a known mass input
+float HX711_ADC::getNewCalibration(float known_mass)
+{
+	float readValue = getData();
+	float exist_calFactor = getCalFactor();
+	float new_calFactor;
+	new_calFactor = (readValue * exist_calFactor) / known_mass;
     return new_calFactor;
 }
 
