@@ -27,7 +27,7 @@ void HX711_ADC::setGain(uint8_t gain)  //value should be 32, 64 or 128*
 void HX711_ADC::begin()
 {
 	pinMode(sckPin, OUTPUT);
-	pinMode(doutPin, INPUT);
+	pinMode(doutPin, INPUT_PULLUP);
 	setGain(128);
 	powerUp();
 }
@@ -36,7 +36,7 @@ void HX711_ADC::begin()
 void HX711_ADC::begin(uint8_t gain)
 {
 	pinMode(sckPin, OUTPUT);
-	pinMode(doutPin, INPUT);
+	pinMode(doutPin, INPUT_PULLUP);
 	setGain(gain);
 	powerUp();
 }
